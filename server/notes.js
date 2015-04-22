@@ -1,5 +1,9 @@
-Meteor.publish('notes', function () {
-    return Notes.find({});
+Meteor.publish('notes', function (text) {
+    return Notes.find({
+        $or: [
+            {text: { $regex: text }}
+        ]
+    });
 });
 
 Notes.allow({
