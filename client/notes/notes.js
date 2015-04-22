@@ -1,5 +1,7 @@
+Session.set('notesFilterText', '');
+
 Meteor.autorun(function () {
-    Meteor.subscribe('notes', '');
+    Meteor.subscribe('notes', Session.get('notesFilterText'));
 });
 
 // helpers
@@ -26,4 +28,12 @@ Template.notesList.events({
     'click button.deleteNote': function (event) {
         Notes.remove(this._id);
     }
-})
+});
+
+Template.notesFilter.events({
+    'keyup form[name=filterNotes]': function (event) {
+        var text = event.target.value;
+        Session.set('notesFilterText', text);
+        return false;
+    }
+});

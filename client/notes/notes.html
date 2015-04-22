@@ -14,11 +14,13 @@
 </template>
 
 <template name="notesFilter">
-    Filter/Search<br/>
+    <form name="filterNotes">
+        Search: <input type="text" name="noteText" placeholder="Note text" />
+    </form>
 </template>
 
 <template name="notesCreateForm">
     <form name="createNote">
-        <input type="text" name="noteText" placeholder="Note text" />
+        Create: <input type="text" name="noteText" placeholder="Note text" />
     </form>
 </template>
