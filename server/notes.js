@@ -4,7 +4,11 @@ Meteor.publish('notes', function () {
 
 Notes.allow({
     insert: function(userId, doc){
-        return false;
+        return (
+            typeof doc.text !== 'undefined' &&
+            typeof doc.date !== 'undefined' &&
+            doc.text.length > 5
+        );
     },
     update:  function(userId, doc, fieldNames, modifier){
         return false;
