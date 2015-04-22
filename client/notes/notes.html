@@ -1,5 +1,16 @@
 <template name="notesList">
-    List<br/>
+    <h3>List notes</h3>
+    <ul>
+        {{#each notes }}
+            <li>
+                {{foo}}
+            </li>
+        {{else}}
+            <li>
+                No notes...
+            </li>
+        {{/each}}
+    </ul>
 </template>
 
 <template name="notesFilter">
