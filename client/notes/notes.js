@@ -21,3 +21,9 @@ Template.notesCreateForm.events({
         return false;
     }
 });
+
+Template.notesList.events({
+    'click button.deleteNote': function (event) {
+        Notes.remove(this._id);
+    }
+})

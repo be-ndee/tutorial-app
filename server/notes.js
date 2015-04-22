@@ -14,6 +14,6 @@ Notes.allow({
         return false;
     },
     remove:  function(userId, doc){
-        return false;
+        return true;
     }
 });
