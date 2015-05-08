@@ -1,12 +1,13 @@
 <template name="notesList">
     <h3>List notes</h3>
-    <ul>
+    <ul class="list-group">
         {{#each notes }}
-            <li>
-                {{ text }}<button class="deleteNote">Delete</button>
+            <li class="list-group-item">
+                {{ text }}
+                <button class="badge deleteNote">Delete</button>
             </li>
         {{else}}
-            <li>
+            <li class="list-group-item">
                 No notes...
             </li>
         {{/each}}
@@ -14,13 +15,19 @@
 </template>
 
 <template name="notesFilter">
-    <form name="filterNotes">
-        Search: <input type="text" name="noteText" placeholder="Note text" />
+    <form name="filterNotes" class="form-inline">
+        <div class="form-group">
+            <label for="searchNoteTextInput">Search</label>
+            <input id="searchNoteTextInput" type="text" name="noteText" class="form-control" placeholder="Note text" />
+        </div>
     </form>
 </template>
 
 <template name="notesCreateForm">
-    <form name="createNote">
-        Create: <input type="text" name="noteText" placeholder="Note text" />
+    <form name="createNote" class="form-inline">
+        <div class="form-group">
+            <label for="createNoteTextInput">Create</label>
+            <input id="createNoteTextInput" type="text" name="noteText" class="form-control" placeholder="Note text" />
+        </div>
     </form>
 </template>
