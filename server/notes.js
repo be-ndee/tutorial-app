@@ -9,8 +9,8 @@ Meteor.publish('notes', function (text) {
 Notes.allow({
     insert: function(userId, doc){
         return (
-            typeof doc.text !== 'undefined' &&
-            typeof doc.date !== 'undefined' &&
+            typeof doc.text === 'string' &&
+            doc.date instanceof Date &&
             doc.text.length > 5
         );
     },
