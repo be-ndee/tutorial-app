@@ -1,17 +1,29 @@
 <template name="notesList">
     <h3>List notes</h3>
-    <ul class="list-group">
-        {{#each notes }}
-            <li class="list-group-item">
-                {{ text }}
-                <button class="badge deleteNote">Delete</button>
-            </li>
-        {{else}}
-            <li class="list-group-item">
-                No notes...
-            </li>
-        {{/each}}
-    </ul>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Date</th>
+                <th>Text</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each notes }}
+                <tr>
+                    <td>{{ formatDate date }}</td>
+                    <td>{{ text }}</td>
+                    <td>
+                        <button class="btn btn-danger btn-sm deleteNote">Delete</button>
+                    </td>
+                </tr>
+            {{else}}
+                <tr>
+                    <td colspan="3">No notes...</td>
+                </tr>
+            {{/each}}
+        </tbody>
+    </table>
 </template>
 
 <template name="notesFilter">
